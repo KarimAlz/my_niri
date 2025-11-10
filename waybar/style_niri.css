@@ -1,0 +1,196 @@
+/* Variables */
+/* @define-color bg-base #212D40;
+@define-color base #11151C;
+@define-color txt #cdd6f4;
+@define-color disabled #60606b; */
+
+/*
+ * To remember, if I want to add an outline, i should use box-shadow: 0 0 0 Npx #HEX
+*/
+@define-color background   #1b1b1b;
+@define-color alternative  #24201c;
+@define-color surface      #2b2520;
+@define-color active       #332d26;
+@define-color text-main    #ebdbb2;
+@define-color text-muted   #bdae93;
+
+@define-color accent1      #d4a373; /* caramel-gold */
+@define-color accent2      #b5835a; /* brown-orange */
+@define-color accent3      #c97b5e; /* clay-red */
+
+@define-color green        #a3b18a; /* mossy green */
+@define-color blue         #6a8caf; /* muted blue-gray */
+@define-color highlight    #e3c48f; /* parchment gold */
+
+@define-color border       #3c352d;
+@define-color shadow       rgba(0, 0, 0, 0.3);
+
+/* Bar settings */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 17px;
+}
+
+
+window#waybar {
+  background: @background;
+  /* color: @something */
+}
+
+/* Shared modules */
+
+/* To remember: margin and padding works like; UPpx RIGHTpx DOWNpx LEFTpx*/
+#custom-separator,
+#cpu,
+#window,
+#pulseaudio,
+#backlight,
+#tray,
+#memory,
+#battery {
+  /* background: @bg-base; */
+  padding: 0px 10px 0px 3px;
+  margin: 5px 2px;
+  border-radius: 7px;
+  color: @text-main;
+}
+
+#cpu {
+  background: @surface;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 10px;
+  margin-left: 0px;
+  padding-left: 8px;
+}
+
+#memory {
+  background: @surface;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 0px;
+  margin-right: 0px;
+  padding-right: 8px;
+}
+
+#pulseaudio, #backlight {
+  font-size: 17px;
+  margin: 2px 3px;
+}
+
+#pulseaudio.muted {
+  color: @text-muted;
+}
+
+#tray {
+  padding: 0px 3px;
+  background: @surface;
+}
+
+/* Bluetooth */
+#bluetooth {
+  font-size: 20px;
+  margin: 2px 4px 2px 4px;
+  padding: 2px 4px 2px 4px;
+  border-radius: 18px;
+  transition: background 0.3s, color 0.3s;
+  color: @text-main;
+}
+
+#bluetooth.off {
+  color: @text-muted;
+}
+
+#bluetooth:hover {
+  background: @text-main;
+  color: @background;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Network */
+#network {
+  font-size: 13px;
+  background: @surface;
+  margin: 5px 4px;
+  padding: 2px 4px;
+  border-radius: 6px;
+  color: @text-main;
+}
+
+#network.disconnected {
+  color: @disabled;
+}
+
+/* Battery */
+#battery.charging {
+  color: #0ac41f;
+}
+
+/* Workspaces */
+#workspaces {
+  background: @surface;
+  padding: 1px 4px;
+  margin: 3px 0px;
+  border-radius: 6px;
+
+  transition: padding 0.1s, margin 0.1s ease;
+}
+
+#workspaces button {
+  background: @alternative;
+  padding: 1px 8px;
+  margin: 3px 2px;
+  transition: padding 0.1s, margin 0.1s ease;
+}
+
+#workspaces button.active {
+  background: @active;
+  color: @text-main;
+  margin: 1px 2px;
+  padding: 1px 15px;
+  transition: padding 0.1s, margin 0.1s ease;
+}
+
+#workspaces button.empty {
+  color: @text-muted;
+}
+
+/* Not working for some reason 
+#window.empty {
+  background: @base;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+} */
+
+#clock {
+  background: @surface;
+  color: @accent1;
+  padding: 4px 10px;
+  margin: 4px 4px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+#custom-power {
+  padding: 2px 8px;
+  margin: 2px 2px;
+  border-radius: 15px;
+  font-size: 20px;
+  transition: background 0.1s, color 0.1s;
+}
+
+#custom-power:hover {
+  background: #ed0707;
+  color: #ffffff;
+  transition: background 0.1s, color 0.1s;
+}
+
+#custom-separator {
+  padding-right: 0.2em;
+  padding-left: 0.2em;
+}

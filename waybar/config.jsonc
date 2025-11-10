@@ -1,0 +1,136 @@
+{
+  "layer": "top", // "top" or "bottom"
+  "position": "top", // bar position
+  "height": 30, // bar height in px
+  "modules-left": [
+    "sway/workspaces",
+    "sway/window",
+    "sway/mode",
+    "sway/scratchpad",
+    "sway/language"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "custom/spotify",
+    "memory",
+    "cpu",
+    "bluetooth",
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "tray",
+    "custom/separator",
+    "custom/power"
+  ],
+  "clock": {
+    //"format": "{:%Y-%m-%d %H:%M:%S}",
+    //"tooltip-format": "<big>{:%A}</big>\n<tt>{:%Y-%m-%d}</tt>"
+    "format": "{:%H:%M}",
+    "tooltip-format": "{:%d.%m.%Y}"
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      ""
+    ],
+    "format-muted": "MUTE ",
+    "on-click": "pavucontrol"
+  },
+  "network": {
+    "format-wifi": "{icon}",
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format-disconnected": "󰤭",
+    "tooltip-format-wifi": "{essid}",
+    /*"format-wifi": "{essid} ({signalStrength}%) ", */
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr} "
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "on-click": "/home/karim/.config/waybar/scripts/power-profile.sh"
+  },
+  "tray": {
+    "spacing": 10
+  },
+  "cpu": {
+    "interval": 2,
+    "format": "{usage}% "
+  },
+  "sway/window": {
+    "format": "{title}",
+    "max-length": 50
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    /* "format-icons": ["🌑", "🌒", "🌓", "🌔", "🌕"] */
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "sway/language": {
+    "format": {}
+  },
+  "sway/scratchpad": {
+    "format": "{count} in scratchpad",
+    "show-empty": false
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    /*"format-on": "{status}: Not connected",
+    "format-off": "{status}",*/
+    "tooltip-format-on": "Not connected",
+    "tooltip-format-off": "Bluetooth off",
+    "tooltip-format-connected-battery": "{device_alias} - {device_battery_percentage}% charge",
+    "on-click": "bluetoothctl show | grep 'Powered: yes' && bluetoothctl power off || bluetoothctl power on",
+    "on-click-right": "blueman-manager"
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    /*"on-click": "shutdown now",
+    "on-double-click": "reboot"*/
+    "menu": "on-click",
+    "menu-file": "/home/karim/.config/waybar/menu/power_menu.xml",
+    "menu-actions": {
+      "shutdown": "shutdown now",
+      "reboot": "reboot"
+    }
+  },
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
+  },
+  "custom/spotify": {
+    "exec": "playerctl metadata --format '{{ artist }} - {{ title }}' 2>/dev/null || echo 'No music playing'",
+    "interval": 5,
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{percentage}% "
+  }
+}

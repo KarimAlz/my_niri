@@ -1,0 +1,164 @@
+/* Variables */
+@define-color bg-base #1e1e2e;
+@define-color base #313244;
+@define-color txt #cdd6f4;
+@define-color disabled #60606b;
+
+
+@define-color dark-purple #48037a;
+
+/* Bar general settings */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+	background: transparent;
+	color: #cdd6f6;
+	padding: 0 8px;
+}
+
+/* Shared modules */
+#cpu,
+#window,
+#pulseaudio,
+#backlight,
+#language,
+#tray,
+#scratchpad,
+#memory,
+#battery {
+	background: @base;
+	padding: 0px 13px 0px 8px;
+	margin: 6px 3px;
+	border-radius: 18px;
+}
+
+/* Bluetooth */
+#bluetooth {
+  font-size: 20px;
+  background: @base;
+  color: @txt;
+  border-bottom-left-radius: 18px;
+  border-top-left-radius: 18px;
+  margin: 6px 0 6px 3px;
+  padding: 4px 4px 4px 4px;
+}
+
+#bluetooth.off {
+  color: @disabled;
+}
+
+#bluetooth:hover {
+  background: @txt;
+  color: @base;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Network */
+#network {
+  font-size: 18px;
+  background: @base;
+  color: @txt;
+  border-bottom-right-radius: 18px;
+  border-top-right-radius: 18px;
+  margin: 6px 3px 6px 0;
+  padding: 4px 12px 4px 4px;
+}
+
+#network.disconnected {
+  color: @disabled;
+}
+
+/* Battery additions */
+#battery.charging {
+	color: #0ac41f
+}
+
+/* Workspace */
+#workspaces button {
+	background: @base;
+	color: @txt;
+	padding: 4px 8px;
+	margin: 3px 2px;
+	border-radius: 10px;
+	transition: background 0.2s;
+}
+
+#workspaces button.focused {
+	background: @dark-purple;
+	color: @txt;
+}
+
+#workspaces button.urgent {
+	background: #f38ba8;
+}
+
+#clock {
+	background: @base;
+	color: @txt;
+	border-radius: 8px;
+	padding: 0 10px;
+	margin: 15px 0 15px 2px;
+  font-size: 14px;
+}
+
+#custom-power {
+  background: @base;
+  color: #ed0707;
+  padding: 4px 8px;
+  /* margin: 0 10px 0 2px; */
+  margin: 6px 2px;
+  border-radius: 15px;
+  font-size: 20px;
+}
+
+#custom-power:hover {
+  background: #ed0707;
+  color: @txt;
+  transition: background 0.2s;
+}
+
+#custom-separator {
+  color: @base;
+  font-size: 20px;
+  padding: 2px;
+}
+
+#custom-spotify {
+  background: @base;
+  color: #00ac0b;
+  border-radius: 15px;
+  margin: 5px 5px 5px 5px;
+  padding: 5px 5px;
+}
+
+menu {
+  background: @base;
+  color: @txt;
+  outline: none;
+}
+
+menuitem {
+  border-radius: 15px;
+}
+
+.modules-left {
+	background: @bg-base;
+	border-radius: 12px;
+	padding: 2px;
+	margin: 8px 10px;
+}
+
+.modules-center {
+}
+
+.modules-right {
+	background: @bg-base;
+	border-radius: 12px;
+	padding: 2px;
+	margin: 8px 10px;
+}
